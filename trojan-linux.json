@@ -1,0 +1,52 @@
+{
+  "inbounds": [
+    {
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "trojan",
+      "settings": {
+        "servers": [
+          {
+            "address": "www.lipcon.com",
+            "port": 443,
+            "password": "67c36b60-b90c-443e-b6bc-1da7a109f574",
+            "level": 8
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sgdo-2dev.tokomard.store",
+          "allowInsecure": true
+        },
+        "wsSettings": {
+          "path": "/trojan-ws",
+          "host": "sgdo-2dev.tokomard.store",
+          "method": "GET"
+        }
+      },
+      "tag": "TROJAN"
+    }
+  ],
+  "policy": {
+    "levels": {
+      "8": {
+        "handshake": 4,
+        "connIdle": 300,
+        "uplinkOnly": 1,
+        "downlinkOnly": 1
+      }
+    }
+  }
+}
+
